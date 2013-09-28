@@ -269,8 +269,8 @@ class Common(Configuration):
     ########## Your common stuff: Below this line define 3rd party libary settings
 
     # django-avatar custom settings
-    AVATAR_GRAVATAR_BACKUP = False
-    AVATAR_DEFAULT_URL = '/img/blank-avatar.png'
+    #AVATAR_GRAVATAR_BACKUP = False
+    #AVATAR_DEFAULT_URL = '/img/blank-avatar.png'
 
 class Local(Common):
 
@@ -388,4 +388,3 @@ class Production(Common):
 
     ########## Your production stuff: Below this line define 3rd party libary settings
 
-    AVATAR_DEFAULT_URL = STATIC_URL + 'img/blank-avatar.png'
