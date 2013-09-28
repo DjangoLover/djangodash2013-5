@@ -39,5 +39,5 @@ django-avatar==2.0
 # Your custom requirements go here
 
 # helper for musician search
-pyzipcode==0.4
-geopy==0.95.1
+#pyzipcode==0.4
+#geopy==0.95.1
