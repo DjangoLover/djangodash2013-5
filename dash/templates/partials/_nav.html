@@ -3,7 +3,7 @@
 
 <div class="header navbar">
   <div class="container">
-    <a class="navbar-brand" href="/"><i class="icon-music"></i> {{cookiecutter.repo_name}}</a>
+    <a class="navbar-brand" href="/"><i class="icon-music"></i> JamFind.us </a>
     <ul class="nav navbar-nav navbar-right">
 
       {% if not request.user.is_authenticated %}
@@ -14,7 +14,7 @@
       {% if request.user.is_authenticated %}
         <li class="dropdown">
           <a class="dropdown-toggle profile" data-toggle="dropdown" href="#">
-           <img class="img-rounded" src="{% avatar_url object %}" width="30" />
+           <img class="img-rounded" src="" width="30" />
             {{ user.username }} <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
