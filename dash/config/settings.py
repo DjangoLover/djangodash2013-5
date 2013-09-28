@@ -54,6 +54,8 @@ class Common(Configuration):
     LOCAL_APPS = (
         'users',  # custom users app
         # Your stuff: custom apps go here
+        'music',
+        'search',
     )
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

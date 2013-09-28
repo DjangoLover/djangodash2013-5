@@ -24,7 +24,6 @@ class UserDetailView(LoginRequiredMixin, DetailView):
     slug_field = "username"
     slug_url_kwarg = "username"
 
-
 class UserRedirectView(LoginRequiredMixin, RedirectView):
     permanent = False
 

@@ -1,0 +1,33 @@
+- fields: {name: Saxophone}
+  model: music.instrument
+  pk: 1
+- fields: {name: 'Bass, Electric'}
+  model: music.instrument
+  pk: 2
+- fields: {name: 'Bass, Upright'}
+  model: music.instrument
+  pk: 3
+- fields: {name: 'Guitar, Electric'}
+  model: music.instrument
+  pk: 4
+- fields: {name: 'Guitar, Acoustic'}
+  model: music.instrument
+  pk: 5
+- fields: {name: Drumset}
+  model: music.instrument
+  pk: 6
+- fields: {name: Percussion}
+  model: music.instrument
+  pk: 7
+- fields: {name: 'Piano, Acoustic'}
+  model: music.instrument
+  pk: 8
+- fields: {name: 'Piano, Electric'}
+  model: music.instrument
+  pk: 9
+- fields: {name: Vocals}
+  model: music.instrument
+  pk: 10
+- fields: {name: Trumpet}
+  model: music.instrument
+  pk: 11

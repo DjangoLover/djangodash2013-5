@@ -30,4 +30,7 @@ urlpatterns = patterns('',
 
     # Your stuff: custom urls go here
 
+    url(r'^profile/', include('music.urls', namespace='music')),
+    url(r'^search/', include('search.urls', namespace='search')),
+
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
