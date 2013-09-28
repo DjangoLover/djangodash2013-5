@@ -14,7 +14,7 @@
       {% if request.user.is_authenticated %}
         <li class="dropdown">
           <a class="dropdown-toggle profile" data-toggle="dropdown" href="#">
-           <img class="img-rounded" src="" width="30" />
+           <img class="img-rounded" src="{% avatar_url user %}" width="30" />
             {{ user.username }} <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
