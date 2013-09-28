@@ -8,4 +8,4 @@ gevent==0.13.8
 boto==2.9.5
 
 # install from github since pypi doesn't work on heroku
--e git+https://github.com/fdintino/pyzipcode.git
+-e git+https://github.com/fdintino/pyzipcode.git#egg=pyzipcode
