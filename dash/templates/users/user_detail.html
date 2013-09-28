@@ -10,12 +10,12 @@
   <div class="row">
     <div class="col-sm-12">
 
-      <h2>{{ object.username }}</h2>
+      <h2><img class="img-circle" src="{% avatar_url object 100 %}" /> {{ object.username }}</h2>
     </div>
   </div>
 
 {% if object == request.user %}
-<!-- Action buttons -->     
+<!-- Action buttons -->
 <div class="row">
 
   <div class="col-sm-12 ">
