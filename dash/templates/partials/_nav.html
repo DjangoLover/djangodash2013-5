@@ -1,0 +1,31 @@
+{% load i18n %}
+{% load avatar_tags %}
+
+<div class="header navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/"><i class="icon-music"></i> {{cookiecutter.repo_name}}</a>
+    <ul class="nav navbar-nav navbar-right">
+
+      {% if not request.user.is_authenticated %}
+      <li class=""><a href="{% url 'home' %}">Home</a></li>
+      <li class=""><a href="{% url 'about' %}">About</a></li>
+      {% endif %}
+
+      {% if request.user.is_authenticated %}
+        <li class="dropdown">
+          <a class="dropdown-toggle profile" data-toggle="dropdown" href="#">
+           <img class="img-rounded" src="{% avatar_url object %}" width="30" />
+            {{ user.username }} <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li class=""><a href="{% url 'users:detail' request.user.username  %}"><i class="icon-user"></i> {% trans "My Profile" %}</a></li>
+            <li class=""><a href="{% url 'account_logout' %}"><i class="icon-power-off"></i> {% trans "Logout" %}</a></li>
+          </ul>
+        </li>
+      {% else %}
+        <li class=""><a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li>
+        <li class=""><a href="{% url 'account_login' %}">{% trans "Log In" %}</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</div>
