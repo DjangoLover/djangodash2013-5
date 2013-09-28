@@ -1,0 +1,30 @@
+- fields: {name: jazz}
+  model: music.style
+  pk: 1
+- fields: {name: blues}
+  model: music.style
+  pk: 2
+- fields: {name: folk}
+  model: music.style
+  pk: 3
+- fields: {name: alternative}
+  model: music.style
+  pk: 4
+- fields: {name: funk}
+  model: music.style
+  pk: 5
+- fields: {name: rock}
+  model: music.style
+  pk: 6
+- fields: {name: all}
+  model: music.style
+  pk: 7
+- fields: {name: bluegrass}
+  model: music.style
+  pk: 8
+- fields: {name: classical}
+  model: music.style
+  pk: 9
+- fields: {name: other}
+  model: music.style
+  pk: 10
