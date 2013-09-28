@@ -30,10 +30,14 @@ psycopg2==2.5
 
 # Unicode slugification
 unicode-slugify==0.1.1
-django-autoslug==1.7.1  
+django-autoslug==1.7.1
 
 # Useful things
 django-avatar==2.0
 
 
 # Your custom requirements go here
+
+# helper for musician search
+pyzipcode==0.4
+geopy==0.95.1
