@@ -18,7 +18,7 @@
             {{ user.username }} <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li class=""><a href="{% url 'users:detail' request.user.username  %}"><i class="icon-user"></i> {% trans "My Profile" %}</a></li>
+            <li class=""><a href="{% url 'music:self_detail' %}"><i class="icon-user"></i> {% trans "My Profile" %}</a></li>
             <li class=""><a href="{% url 'account_logout' %}"><i class="icon-power-off"></i> {% trans "Logout" %}</a></li>
           </ul>
         </li>

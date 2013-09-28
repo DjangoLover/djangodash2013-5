@@ -38,6 +38,12 @@ django-avatar==2.0
 
 # Your custom requirements go here
 
+# for loaddata
+pyyaml
+
 # helper for musician search
 #pyzipcode==0.4
 #geopy==0.95.1
+
+# github.com/theatlantic/django-chosen
+django-chosen==0.1

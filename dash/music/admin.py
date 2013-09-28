@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 
-from .models import MusicProfile, Instrument, Influence, UserInfluence, UserInstrument, UserRating
+from .models import *
 
 
 class MusicProfileAdmin(admin.ModelAdmin):
@@ -14,6 +14,11 @@ class InstrumentAdmin(admin.ModelAdmin):
     pass
 
 admin.site.register(Instrument, InstrumentAdmin)
+
+class StyleAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(Style, StyleAdmin)
 
 
 class InfluenceAdmin(admin.ModelAdmin):

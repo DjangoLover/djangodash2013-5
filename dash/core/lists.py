@@ -1,5 +1,7 @@
+
+NONE_CHOICE = 0
+
 # Musical Styles Choices
-NO_STYLE        = 0
 JAZZ_STYLE      = 1
 FOLK_STYLE      = 2
 ROCK_STYLE      = 3
@@ -10,59 +12,63 @@ OTHER_STYLE     = 98
 ANY_STYLE       = 99
 
 STYLE_CHOICES = (
-    ('NO_STYLE',        'none'),
-    ('JAZZ_STYLE',      'jazz'),
-    ('FOLK_STYLE',      'folk'),
-    ('ROCK_STYLE',      'rock'),
-    ('BLUES_STYLE',     'blues'),
-    ('ALT_STYLE',       'alternative'),
-    ('CLASSICAL_STYLE', 'classical'),
-    ('OTHER_STYLE',     'other'),
-    ('ANY_STYLE',       'any'),
+    (NONE_CHOICE,     '----'),
+    (JAZZ_STYLE,      'jazz'),
+    (FOLK_STYLE,      'folk'),
+    (ROCK_STYLE,      'rock'),
+    (BLUES_STYLE,     'blues'),
+    (ALT_STYLE,       'alternative'),
+    (CLASSICAL_STYLE, 'classical'),
+    (OTHER_STYLE,     'other'),
+    (ANY_STYLE,       'any'),
 )
 
 # A general list of instruments, not all encompassing
 # maybe use this wiltonelder.com/list-of-music-instruments
-VOCAL_INST          = 0
-GUITAR_INST         = 1
-ELECTRIC_BASS_INST  = 2
-DRUMSET_INST        = 3
-PERCUSSION_INST     = 4
-PIANO_INST          = 5
-VIOLIN_INST         = 6
-VIOLA_INST          = 7
-CELLO_INST          = 8
-UPRIGHT_BASS_INST   = 9
-FLUTE_INST          = 10
-CLARINET_INST       = 11
-SOPRANO_SAX_INST    = 12
-ALTO_SAX_INST       = 13
-TENOR_SAX_INST      = 14
-BARI_SAX_INST       = 15
-TRUMPET_INST        = 16
-OTHER_INST          = 17
-HARP_INST           = 18
-ELEC_KEYBOARD_INST  = 19
+
+ALTO_SAX_INST = 1
+BARI_SAX_INST = 2
+BASS_ELECTRIC_INST = 3
+BASS_UPRIGHT_INST = 4
+CELLO_INST = 5
+CLARINET_INST = 6
+DRUMSET_INST = 7
+ELEC_KEYBOARD_INST = 8
+FLUTE_INST = 9
+GUITAR_ACOUSTIC_INST = 10
+GUITAR_ELECTRIC_INST = 11
+HARP_INST = 12
+OTHER_INST = 13
+PERCUSSION_INST = 14
+PIANO_ACOUSTIC_INST = 15
+SOPRANO_SAX_INST = 16
+TENOR_SAX_INST = 17
+TRUMPET_INST = 18
+VIOLA_INST = 19
+VIOLIN_INST = 20
+VOCAL_INST = 21
 
 INSTRUMENT_CHOICES  = (
-    (ALTO_SAX_INST,     '1'),
-    (BARI_SAX_INST,     '2'),
-    (CELLO_INST,        '3'),
-    (CLARINET_INST,     '4'),
-    (DRUMSET_INST,      '5'),
-    (ELEC_KEYBOARD_INST,'6'),
-    (ELECTRIC_BASS_INST,'7'),
-    (FLUTE_INST,        '8'),
-    (GUITAR_INST,       '9'),
-    (HARP_INST,         '10'),
-    (OTHER_INST,        '11'),
-    (PERCUSSION_INST,   '12'),
-    (PIANO_INST,        '13'),
-    (SOPRANO_SAX_INST,  '14'),
-    (TENOR_SAX_INST,    '15'),
-    (TRUMPET_INST,      '16'),
-    (UPRIGHT_BASS_INST, '17'),
-    (VIOLA_INST,        '18'),
-    (VIOLIN_INST,       '19'),
-    (VOCAL_INST,        '20'),
+    (NONE_CHOICE,       '-----'),
+    (ALTO_SAX_INST,     'saxophone, alto'),
+    (BARI_SAX_INST,     'saxophone, baritone'),
+    (CELLO_INST,        'cello'),
+    (CLARINET_INST,     'clarinet'),
+    (DRUMSET_INST,      'drumset'),
+    (ELEC_KEYBOARD_INST,'piano, electric'),
+    (BASS_ELECTRIC_INST,'bass, electric'),
+    (FLUTE_INST,        'flute'),
+    (GUITAR_ACOUSTIC_INST,       'guitar, acoustic'),
+    (GUITAR_ELECTRIC_INST,       'guitar, electric'),
+    (HARP_INST,         'harp'),
+    (OTHER_INST,        'other'),
+    (PERCUSSION_INST,   'percussion'),
+    (PIANO_ACOUSTIC_INST,        'piano, acoustic'),
+    (SOPRANO_SAX_INST,  'saxophone, soprano'),
+    (TENOR_SAX_INST,    'saxophone, tenor'),
+    (TRUMPET_INST,      'trumpet'),
+    (BASS_UPRIGHT_INST, 'bass, upright'),
+    (VIOLA_INST,        'viola'),
+    (VIOLIN_INST,       'violin'),
+    (VOCAL_INST,        'vocals'),
 )

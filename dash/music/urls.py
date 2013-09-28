@@ -7,6 +7,11 @@ urlpatterns = patterns('',
     # URL pattern for the UserDetailView
     url(
         regex=r'^$',
+        view=views.MusicProfileSelfDetailView.as_view(),
+        name='self_detail'
+    ),
+    url(
+        regex=r'^(?P<pk>\d+)/$',
         view=views.MusicProfileDetailView.as_view(),
         name='detail'
     ),

@@ -1,0 +1,43 @@
+{% extends "music/music_base.html" %}
+{% load avatar_tags %}
+{% load static %}
+
+{% block title %}{{ object.user.username }}'s Profile{% endblock title %}
+
+{% block content %}
+<div class="container well">
+
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h2><img class="img-circle" src="{% avatar_url object.user 100 %}" /> {{ object.user.username }}</h2>
+    </div>
+  </div>
+
+{% if object.user == request.user %}
+<!-- Action buttons -->
+<div class="row">
+
+  <div class="col-sm-12 ">
+    <a class="btn btn-primary" href="{% url 'users:update' %}">My Info</a>
+    <a class="btn btn-primary" href="{% url 'account_email' %}">E-Mail</a>
+    <a class="btn btn-info" href="{% url 'avatar_change' %}">Avatar</a>
+    <h3>Profile</h3>
+    <h5><a href="{% url 'music:update' %}" class="btn-link">Edit</a></h5>
+    <ul class="list-unstyled">
+      <li>{{ object.user.first_name }} {{ object.user.last_name }}</li>
+      <li>Instrument:
+        {% for o in object.instruments.all %}
+          <span class="label label-primary">{{ o.name }}</span>
+        {% endfor %}</li>
+      <li>Location: {{ object.zipcode }}</li>
+    </ul>
+  </div>
+
+</div>
+<!-- End Action buttons -->
+{% endif %}
+
+
+</div>
+{% endblock content %}

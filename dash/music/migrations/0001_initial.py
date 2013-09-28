@@ -8,17 +8,6 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'MusicProfile'
-        db.create_table(u'music_musicprofile', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('user', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['users.User'], unique=True)),
-            ('instruments', self.gf('django.db.models.fields.CommaSeparatedIntegerField')(default=None, max_length=10, null=True)),
-            ('skill_rating', self.gf('django.db.models.fields.IntegerField')(default=0)),
-            ('styles', self.gf('django.db.models.fields.CommaSeparatedIntegerField')(default=None, max_length=10, null=True)),
-            ('zipcode', self.gf('django.db.models.fields.CharField')(max_length=16, null=True, blank=True)),
-        ))
-        db.send_create_signal(u'music', ['MusicProfile'])
-
         # Adding model 'Instrument'
         db.create_table(u'music_instrument', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
@@ -26,12 +15,46 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'music', ['Instrument'])
 
+        # Adding model 'Style'
+        db.create_table(u'music_style', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('name', self.gf('django.db.models.fields.CharField')(max_length=32)),
+        ))
+        db.send_create_signal(u'music', ['Style'])
+
         # Adding model 'Influence'
         db.create_table(u'music_influence', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=32)),
         ))
         db.send_create_signal(u'music', ['Influence'])
+
+        # Adding model 'MusicProfile'
+        db.create_table(u'music_musicprofile', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('user', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['users.User'], unique=True)),
+            ('skill_rating', self.gf('django.db.models.fields.IntegerField')(default=0)),
+            ('zipcode', self.gf('django.db.models.fields.CharField')(max_length=16, null=True, blank=True)),
+        ))
+        db.send_create_signal(u'music', ['MusicProfile'])
+
+        # Adding M2M table for field instruments on 'MusicProfile'
+        m2m_table_name = db.shorten_name(u'music_musicprofile_instruments')
+        db.create_table(m2m_table_name, (
+            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
+            ('musicprofile', models.ForeignKey(orm[u'music.musicprofile'], null=False)),
+            ('instrument', models.ForeignKey(orm[u'music.instrument'], null=False))
+        ))
+        db.create_unique(m2m_table_name, ['musicprofile_id', 'instrument_id'])
+
+        # Adding M2M table for field styles on 'MusicProfile'
+        m2m_table_name = db.shorten_name(u'music_musicprofile_styles')
+        db.create_table(m2m_table_name, (
+            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
+            ('musicprofile', models.ForeignKey(orm[u'music.musicprofile'], null=False)),
+            ('style', models.ForeignKey(orm[u'music.style'], null=False))
+        ))
+        db.create_unique(m2m_table_name, ['musicprofile_id', 'style_id'])
 
         # Adding model 'UserInfluence'
         db.create_table(u'music_userinfluence', (
@@ -61,14 +84,23 @@ class Migration(SchemaMigration):
 
 
     def backwards(self, orm):
-        # Deleting model 'MusicProfile'
-        db.delete_table(u'music_musicprofile')
-
         # Deleting model 'Instrument'
         db.delete_table(u'music_instrument')
 
+        # Deleting model 'Style'
+        db.delete_table(u'music_style')
+
         # Deleting model 'Influence'
         db.delete_table(u'music_influence')
+
+        # Deleting model 'MusicProfile'
+        db.delete_table(u'music_musicprofile')
+
+        # Removing M2M table for field instruments on 'MusicProfile'
+        db.delete_table(db.shorten_name(u'music_musicprofile_instruments'))
+
+        # Removing M2M table for field styles on 'MusicProfile'
+        db.delete_table(db.shorten_name(u'music_musicprofile_styles'))
 
         # Deleting model 'UserInfluence'
         db.delete_table(u'music_userinfluence')
@@ -114,11 +146,16 @@ class Migration(SchemaMigration):
         u'music.musicprofile': {
             'Meta': {'object_name': 'MusicProfile'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'instruments': ('django.db.models.fields.CommaSeparatedIntegerField', [], {'default': 'None', 'max_length': '10', 'null': 'True'}),
+            'instruments': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['music.Instrument']", 'symmetrical': 'False'}),
             'skill_rating': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
-            'styles': ('django.db.models.fields.CommaSeparatedIntegerField', [], {'default': 'None', 'max_length': '10', 'null': 'True'}),
+            'styles': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['music.Style']", 'symmetrical': 'False'}),
             'user': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['users.User']", 'unique': 'True'}),
             'zipcode': ('django.db.models.fields.CharField', [], {'max_length': '16', 'null': 'True', 'blank': 'True'})
+        },
+        u'music.style': {
+            'Meta': {'object_name': 'Style'},
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '32'})
         },
         u'music.userinfluence': {
             'Meta': {'object_name': 'UserInfluence'},

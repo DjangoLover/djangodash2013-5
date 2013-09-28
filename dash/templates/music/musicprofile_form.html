@@ -1,0 +1,12 @@
+{% extends "music/music_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <form action="." method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input class="btn btn-primary" type="submit" name="submit" value="Update Profile" />
+        <a class="btn-link" href="{% url 'music:self_detail' %}">Cancel</a>
+    </form>
+{% endblock content %}
