@@ -387,3 +387,5 @@ class Production(Common):
     ########## END CACHING
 
     ########## Your production stuff: Below this line define 3rd party libary settings
+
+    AVATAR_DEFAULT_URL = STATIC_URL + 'img/blank-avatar.png'
