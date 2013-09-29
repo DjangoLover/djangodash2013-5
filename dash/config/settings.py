@@ -302,7 +302,9 @@ class Local(Common):
     ########## end django-debug-toolbar
 
     ########## Your local stuff: Below this line define 3rd party libary settings
-
+    # if dummy data is set, will use some test records
+    # for dev or a demo in prod
+    DUMMY_DATA = values.BooleanValue(False)
 
 class Production(Common):
 
@@ -393,4 +395,3 @@ class Production(Common):
     ########## END CACHING
 
     ########## Your production stuff: Below this line define 3rd party libary settings
-
