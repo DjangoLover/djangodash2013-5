@@ -1,15 +1,25 @@
 {% extends "search/search_base.html" %}
+{% load avatar_tags %}
 
 {% block content %}
 
     {% if users %}
-
+        <ul class="list-group">
         {% for user in users %}
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-2">{% avatar user 100 %}</div>
+                <div class="col-md-3">
+                     <h2>{{ user.username }}</h2>
+                     <p>{{ user.first_name }} {{ user.last_name }}</p>
+                </div>
+                <div class="col-md-6">
 
-            {{ user.username}}
-
+                </div>
+            </div>
+        </li>
         {% endfor %}
-
+        </ul>
     {% else %}
     <h2>Your search returned 0 results.</h2>
     {% endif %}

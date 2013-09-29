@@ -18,7 +18,7 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
     <!-- Your stuff: Third-party css libraries go here -->
-
+    <link href="{% static 'css/sticky-footer.css' %}" rel="stylesheet">
     <!-- This file store project specific CSS -->
     <link href="{% static 'css/project.css' %}" rel="stylesheet">
     {% endblock %}
@@ -31,7 +31,7 @@
   </head>
 
   <body>
-
+    <div id="wrap">
     {% include "partials/_nav.html" %}
 
     <div class="container">
@@ -44,6 +44,9 @@
     </div> <!-- /container -->
 
     {% block modal %}{% endblock modal %}
+
+  </div><!-- #wrap -->
+  {% include "partials/_footer.html" %}
 
     <!-- Le javascript
     ================================================== -->
@@ -80,6 +83,7 @@
 
     {% endblock javascript %}
     {% block extra_javascript %}{% endblock extra_javascript %}
+
   </body>
 </html>
 
