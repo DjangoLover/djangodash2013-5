@@ -3,18 +3,30 @@
 
 {% block content %}
 
-    {% if users %}
+
+    <div class="row">
+        <div class="alert alert-info">
+          <strong>Note:</strong> Currently we only support search matches with zipcode.
+        </div>
+    </div>
+
+    {% if profiles %}
         <ul class="list-group">
-        {% for user in users %}
+        {% for profile in profiles %}
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-2">{% avatar user 100 %}</div>
+                <div class="col-md-2">{% avatar profile.user 100 %}</div>
                 <div class="col-md-3">
-                     <h2>{{ user.username }}</h2>
-                     <p>{{ user.first_name }} {{ user.last_name }}</p>
+                     <h2>{{ profile.user.username }}</h2>
+                     <p>{{ profile.user.first_name }} {{ profile.user.last_name }}</p>
                 </div>
                 <div class="col-md-6">
-
+                    <ul class="unstyled">
+                        <li>Zipcode: {{ profile.zipcode }}</li>
+                        <li>Instrument: {% for i in profile.instruments.all %}<span class="label label-default">{{ i }}</span> {% endfor %}</li>
+                        <li>Styles: {% for i in profile.styles.all %}<span class="label label-default">{{ i }}</span> {% endfor %}</li>
+                        <li>Skill Rating: {{ profile.skill_rating }}</li>
+                    </ul>
                 </div>
             </div>
         </li>
@@ -23,6 +35,15 @@
     {% else %}
     <h2>Your search returned 0 results.</h2>
     {% endif %}
-    You searched for {{ search_string }}
+
+    <div class="row">
+        <p>You searched for:
+        {% for t in search_terms %}
+            <span class="label label-success">{{ t }}</span>
+        {% endfor %}
+        </p>
+    </div>
+
+    <h3><i class="icon-search"></i> <a href="{% url 'search:main' %}">Search Again</a></h3>
 
 {% endblock content %}

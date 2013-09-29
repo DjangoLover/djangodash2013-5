@@ -8,7 +8,7 @@ from django.views.generic import ListView
 from django.views.generic.edit import FormView
 
 from .forms import SearchForm
-from .utils import do_find
+from .utils import do_find, parse_search
 
 class HomePageSearchFormView(FormView):
     template_name = 'pages/home.html'
@@ -23,13 +23,14 @@ def main_search_form(request):
         if form.is_valid():
 
             q = form.cleaned_data['q']
+            search_terms = parse_search(q)
 
-            users = do_find(request.user, q)
+            profiles = do_find(request.user, q)
 
             return render(request, 'search/search_results.html',
                 {
-                    'users': users,
-                    'search_string': q
+                    'profiles': profiles,
+                    'search_terms': search_terms
                 }
             )
     else:

@@ -8,19 +8,19 @@ class Instrument(models.Model):
     name = models.CharField(max_length=32)
 
     def __unicode__(self):
-        return u'Instrument: %s' % (self.name,)
+        return u'%s' % (self.name,)
 
 class Style(models.Model):
     name = models.CharField(max_length=32)
 
     def __unicode__(self):
-        return u'Style: %s' % (self.name,)
+        return u'%s' % (self.name,)
 
 class Influence(models.Model):
     name = models.CharField(max_length=32)
 
     def __unicode__(self):
-        return u'Influence: %s' % (self.name,)
+        return u'%s' % (self.name,)
 
 
 class MusicProfile(models.Model):

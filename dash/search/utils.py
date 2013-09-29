@@ -32,7 +32,7 @@ def do_find(user, search_query):
     for p in profile_list:
         if p.zipcode in zipcodes:
             if not p.user == user:
-                zip_matches.append(p.user)
+                zip_matches.append(p)
 
     # combine results
     user_matches = zip_matches
