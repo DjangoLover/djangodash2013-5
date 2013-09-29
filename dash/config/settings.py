@@ -274,6 +274,11 @@ class Common(Configuration):
     AVATAR_GRAVATAR_BACKUP = True
     #AVATAR_DEFAULT_URL = '/img/blank-avatar.png'
 
+    # if dummy data is set, will use some test records
+    # for dev or a demo in prod
+    DUMMY_DATA = values.BooleanValue(False)
+
+
 class Local(Common):
 
     ########## INSTALLED_APPS
@@ -300,11 +305,6 @@ class Local(Common):
         'SHOW_TEMPLATE_CONTEXT': True,
     }
     ########## end django-debug-toolbar
-
-    ########## Your local stuff: Below this line define 3rd party libary settings
-    # if dummy data is set, will use some test records
-    # for dev or a demo in prod
-    DUMMY_DATA = values.BooleanValue(False)
 
 class Production(Common):
 
