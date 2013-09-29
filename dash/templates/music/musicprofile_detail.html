@@ -10,7 +10,7 @@
   <div class="row">
     <div class="col-sm-12">
 
-      <h2><img class="" src="{% avatar_url object.user 100 %}" /> {{ object.user.username }}</h2>
+      <h2><img class="" src="{% avatar_url object.user 100 %}" /> {{ object.user.username }} <small> - {{ object.user.first_name }} {{ object.user.last_name }}</small></h2>
     </div>
   </div>
 

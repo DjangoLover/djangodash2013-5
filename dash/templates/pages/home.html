@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block css %}
     {{ block.super }}
@@ -72,7 +73,7 @@
         <p>For all instruments and all styles of music.</p>
 
         <!-- search box -->
-        <form class="form-inline" method="post" action="{% url 'search:main' %}" role="form">
+        <form class="form-inline" method="post" action="" role="form">
         {% csrf_token %}
           <div class="input-group">
               <input type="text" class="form-control input-lg" placeholder="Enter Zipcode or City, State">

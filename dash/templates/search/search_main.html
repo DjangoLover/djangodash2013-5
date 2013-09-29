@@ -1,5 +1,12 @@
 {% extends "search/search_base.html" %}
-
+{% load crispy_forms_tags %}
 {% block content %}
-    This is the search page
+
+    <div class="container">
+    <form method="post" action=".">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" name="submit" value="Search">
+    </form>
+    </div>
 {% endblock content %}

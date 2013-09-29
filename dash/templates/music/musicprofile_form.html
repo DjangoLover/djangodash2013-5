@@ -1,6 +1,11 @@
 {% extends "music/music_base.html" %}
 {% load crispy_forms_tags %}
 
+{% block extra_css %}
+    <!-- django-chosen css media -->
+    {{ form.media.css }}
+{% endblock extra_css %}
+
 {% block content %}
 
     <form action="." method="post">
@@ -10,3 +15,11 @@
         <a class="btn-link" href="{% url 'music:self_detail' %}">Cancel</a>
     </form>
 {% endblock content %}
+
+{% block extra_javascript %}
+<!-- django-chosen js media -->
+    {{ form.media.js }}
+    <script type="text/javascript">
+    $(".chosen-select").chosen();
+    </script>
+{% endblock extra_javascript %}

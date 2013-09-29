@@ -23,10 +23,11 @@
     <link href="{% static 'css/project.css' %}" rel="stylesheet">
     {% endblock %}
 
+    {% block extra_css %}{% endblock extra_css %}
+
     {% block angular %}
       <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     {% endblock %}
-
   </head>
 
   <body>
@@ -58,6 +59,7 @@
       <!-- place project specific Javascript in this file -->
       <script src="{% static 'js/project.js' %}"></script>
     {% endblock javascript %}
+    {% block extra_javascript %}{% endblock extra_javascript %}
   </body>
 </html>
 
