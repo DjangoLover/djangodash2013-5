@@ -73,10 +73,9 @@
         <p>For all instruments and all styles of music.</p>
 
         <!-- search box -->
-        <form class="form-inline" method="get" action=".">
-        {% csrf_token %}
+        <form class="form-inline" method="get" action="{% url 'search:main' %}">
           <div class="input-group">
-              <input type="text" class="form-control input-lg" placeholder="Enter Zipcode or City, State">
+              <input type="text" id="id_q" name="q" class="form-control input-lg" placeholder="Enter Zipcode or City, State">
               <span class="input-group-btn">
                 <input class="btn btn-lg btn-success" type="submit" name="submit" value="Find a Jam!" />
               </span>

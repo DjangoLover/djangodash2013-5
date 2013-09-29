@@ -24,11 +24,21 @@ class MainSearchFormView(FormView):
 
 def main_search_form(request):
 
-    if 'q' in request.GET and request.GET['q']:
-        q = request.GET['q']
-        return render(request, 'search/search_results.html',
-            {'query': q} )
+
+    if request.GET.items():
+
+        form = SearchForm(request.GET)
+
+        if form.is_valid():
+
+            q = form.cleaned_data['q']
+
+            return render(request, 'search/search_results.html',
+                {'query': q} )
     else:
         form = SearchForm()
-        messages.warning(request, 'Please enter either a zipcode, city and state, or musical style to find')
-        return render(request, 'search/search_main.html', {'form': form })
+
+    return render(request, 'search/search_main.html', {'form': form })
+
+def do_find(search_query):
+    pass

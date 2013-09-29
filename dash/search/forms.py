@@ -10,3 +10,11 @@ class SearchForm(forms.Form):
         max_length=50,
         help_text='Enter up to 50 characters maximum.',
         label="Search",)
+
+    def clean_q(self):
+        q = self.cleaned_data['q']
+
+        if not q:
+            raise FormValidation('You must enter one search term')
+
+        return q
