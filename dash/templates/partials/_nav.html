@@ -1,7 +1,7 @@
 {% load i18n %}
 {% load avatar_tags %}
 
-<div class="header navbar">
+<div class="header navbar navbar-default">
   <div class="container">
     <a class="navbar-brand" href="/"><i class="icon-music"></i> JamFind.us </a>
     <ul class="nav navbar-nav navbar-right">
@@ -10,6 +10,9 @@
       <li class=""><a href="{% url 'home' %}">Home</a></li>
       <li class=""><a href="{% url 'about' %}">About</a></li>
       {% endif %}
+
+      <li><a href="{% url 'search:main' %}"><i class="icon-search"></i> Search</a></li>
+
 
       {% if request.user.is_authenticated %}
         <li class="dropdown">

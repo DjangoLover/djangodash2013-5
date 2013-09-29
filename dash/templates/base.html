@@ -14,7 +14,7 @@
 
     {% block css %}
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/slate/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
     <!-- Your stuff: Third-party css libraries go here -->
@@ -32,8 +32,8 @@
   <body>
 
     {% include "partials/_nav.html" %}
-
     <div class="container">
+      {% block page_header %}{% endblock page_header %}
 
       {% block content %}
         <p>Use this document as a way to quick start any new project.</p>

@@ -10,7 +10,7 @@
   <div class="row">
     <div class="col-sm-12">
 
-      <h2><img class="img-circle" src="{% avatar_url object.user 100 %}" /> {{ object.user.username }}</h2>
+      <h2><img class="" src="{% avatar_url object.user 100 %}" /> {{ object.user.username }}</h2>
     </div>
   </div>
 
@@ -30,7 +30,7 @@
         {% for o in object.instruments.all %}
           <span class="label label-primary">{{ o.name }}</span>
         {% endfor %}</li>
-      <li>Location: {{ object.zipcode }}</li>
+      <li>Location: {{ object.zipcode }} {{ zipcode.city }}, {{ zipcode.state }}</li>
     </ul>
   </div>
 
@@ -39,5 +39,5 @@
 {% endif %}
 
 
-</div>
+</div><!-- .container.well -->
 {% endblock content %}

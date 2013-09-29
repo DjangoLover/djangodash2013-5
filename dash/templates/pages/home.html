@@ -65,15 +65,26 @@
     <div class="container">
       <div class="jumbotron">
         <h1>
-          <span class="icon-stack">
-            <i class="icon-search icon-stack-base"></i>
-            <i class="icon-music icon-light"></i>
-          </span> JamFind.Us</h1>
-        <p class="lead">For adult amateur musicians looking for a place to play.</p>
+            <i class="icon-search"></i> JamFind.us
+        </h1>
+        <p class="lead">For adult amateur musicians looking for a place to play, learn and improve.</p>
         <p>If you put away your instrument after college, but want to start playing again, here's how.</p>
         <p>For all instruments and all styles of music.</p>
-        <p><a class="btn btn-lg btn-success" href="#">Find a Jam</a></p>
-      </div>
+
+        <!-- search box -->
+        <form class="form-inline" method="post" action="{% url 'search:main' %}" role="form">
+        {% csrf_token %}
+          <div class="input-group">
+              <input type="text" class="form-control input-lg" placeholder="Enter Zipcode or City, State">
+              <span class="input-group-btn">
+                <input class="btn btn-lg btn-success" type="submit" name="submit" value="Find a Jam!" />
+              </span>
+          </div><!-- /input-group -->
+        </form>
+
+        <!-- end search box -->
+
+      </div><!-- jumbotron -->
 
       <div class="row marketing">
         <div class="col-lg-6">
