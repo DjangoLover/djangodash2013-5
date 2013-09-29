@@ -68,18 +68,18 @@
       <script type="text/javascript" src="{% static 'js/noty/layouts/top.js' %}"></script>
       <script type="text/javascript" src="{% static 'js/noty/themes/default.js' %}"></script>
 
-      {% if messages %}
-        <script type="text/javascript">
-          {% for message in messages %}
-          var noty = noty({
-            text: '{{ message }}',
-            type: '{{ message.tags }}',
-            timeout: 3000,
-            closeWith: ['click', 'button', 'hover'],
-          });
-          {% endfor %}
-        </script>
-      {% endif %}
+        {% if messages %}
+          <script type="text/javascript">
+            {% for message in messages %}
+            var noty = noty({
+              text: '{{ message }}',
+              type: '{{ message.tags }}',
+              timeout: 3000,
+              closeWith: ['click', 'button', 'hover'],
+            });
+            {% endfor %}
+          </script>
+        {% endif %}
 
     {% endblock javascript %}
     {% block extra_javascript %}{% endblock extra_javascript %}

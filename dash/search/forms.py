@@ -9,7 +9,8 @@ class SearchForm(forms.Form):
     q = forms.CharField(
         max_length=50,
         help_text='Enter up to 50 characters maximum.',
-        label="Search",)
+        label="Search",
+        widget=forms.TextInput(attrs={'placeholder': 'Enter a Zipcode, City and State'}))
 
     def clean_q(self):
         q = self.cleaned_data['q']
