@@ -1,0 +1,8 @@
+- fields:
+    instruments: [6]
+    skill_rating: 3
+    styles: [6]
+    user: 999
+    zipcode: '80111'
+  model: music.musicprofile
+  pk: 999

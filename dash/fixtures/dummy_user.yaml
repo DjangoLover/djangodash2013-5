@@ -1,0 +1,15 @@
+- fields:
+    date_joined: 2013-09-29 17:47:39.672083+00:00
+    email: tom@test.com
+    first_name: Tom
+    groups: []
+    is_active: true
+    is_staff: false
+    is_superuser: false
+    last_login: 2013-09-29 17:52:29.230070+00:00
+    last_name: Dummyuser
+    password: pbkdf2_sha256$10000$hhFX2dn3vXE8$bMV8IdRnG/5C/dNVDBw/7dOADPwhC3qbLzqJmNjlrX0=
+    user_permissions: []
+    username: tom012345
+  model: users.user
+  pk: 999
