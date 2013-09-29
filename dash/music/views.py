@@ -33,10 +33,11 @@ class MusicProfileSelfDetailView(LoginRequiredMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(MusicProfileSelfDetailView, self).get_context_data(**kwargs)
-        zip = self.object.zipcode
-        zcdb = ZipCodeDatabase()
-        zip_obj = zcdb[zip]
-        context['zipcode'] = {'city': zip_obj.city, 'state': zip_obj.state}
+        zipcode = self.object.zipcode
+        if zipcode:
+            zcdb = ZipCodeDatabase()
+            zip_obj = zcdb[zipcode]
+            context['zipcode'] = {'city': zip_obj.city, 'state': zip_obj.state}
 
         return context
 

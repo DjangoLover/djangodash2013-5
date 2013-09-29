@@ -1,5 +1,18 @@
 {% extends "search/search_base.html" %}
 
 {% block content %}
-    You searched for {{ query }}
+
+    {% if users %}
+
+        {% for user in users %}
+
+            {{ user.username}}
+
+        {% endfor %}
+
+    {% else %}
+    <h2>Your search returned 0 results.</h2>
+    {% endif %}
+    You searched for {{ search_string }}
+
 {% endblock content %}
