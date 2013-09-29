@@ -33,6 +33,7 @@
   <body>
 
     {% include "partials/_nav.html" %}
+
     <div class="container">
       {% block page_header %}{% endblock page_header %}
 
@@ -58,6 +59,25 @@
 
       <!-- place project specific Javascript in this file -->
       <script src="{% static 'js/project.js' %}"></script>
+
+      <!-- noty -->
+      <script type="text/javascript" src="{% static 'js/noty/jquery.noty.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/noty/layouts/top.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/noty/themes/default.js' %}"></script>
+
+      {% if messages %}
+        <script type="text/javascript">
+          {% for message in messages %}
+          var noty = noty({
+            text: '{{ message }}',
+            type: '{{ message.tags }}',
+            timeout: 3000,
+            closeWith: ['click', 'button', 'hover'],
+          });
+          {% endfor %}
+        </script>
+      {% endif %}
+
     {% endblock javascript %}
     {% block extra_javascript %}{% endblock extra_javascript %}
   </body>

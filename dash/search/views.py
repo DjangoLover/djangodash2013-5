@@ -1,4 +1,6 @@
+from django.contrib import messages
 from django.core.urlresolvers import reverse
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic.edit import FormView
@@ -22,13 +24,11 @@ class MainSearchFormView(FormView):
 
 def main_search_form(request):
 
-    if request.method == "POST":
-
+    if 'q' in request.GET and request.GET['q']:
+        q = request.GET['q']
+        return render(request, 'search/search_results.html',
+            {'query': q} )
+    else:
         form = SearchForm()
-
-        if form.is_valid():
-            return HttpResponse("Success")
-
-    form = SearchForm()
-
-    return render(request, 'search/search_main.html', {'form': form })
+        messages.warning(request, 'Please enter either a zipcode, city and state, or musical style to find')
+        return render(request, 'search/search_main.html', {'form': form })

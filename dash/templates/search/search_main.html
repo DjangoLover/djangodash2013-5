@@ -3,10 +3,9 @@
 {% block content %}
 
     <div class="container">
-    <form method="post" action=".">
-        {% csrf_token %}
+    <form method="get" action=".">
         {{ form|crispy }}
-        <input type="submit" name="submit" value="Search">
+        <input class="btn btn-large btn-primary" type="submit" name="submit" value="Search">
     </form>
     </div>
 {% endblock content %}
