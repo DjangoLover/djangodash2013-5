@@ -1,1 +1,40 @@
 {% extends "base.html" %}
+
+{% block page_header %}
+<div class="page-header">
+  <h2>About <small> Site Details</small></h2>
+</div>
+{% endblock page_header %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row well">
+            <h2>DjangoDash Project: JamFind.us</h2>
+            <p class="lead">Author: <a href="//ornumental.com">Ornumental</a></p>
+        </div>
+
+        <div class="row">
+            <div class="well text-center">
+                <img src="{{ STATIC_URL }}img/screencap.png" />
+            </div>
+            <div class="well">
+                <h3 class="text-center">Project Details</h3>
+                <p>JamFind.us is a site for musicians looking for other musicians to play with.</p>
+                <h4>Built using: </h4>
+                <ul>
+                    <li class="icon-star"> Django (duh)</li>
+                    <li class="icon-star"> cookiecutter-django</li>
+                    <li class="icon-star"><a href="">Bootstrap 3.0</a></li>
+                    <li class="icon-star"><a href="">Bootswatch Theme</a></li>
+
+                </ul>
+                <div class="span4">
+                    <a class="btn btn-success btn-block btn-large" href="//github.com/jimfmunro/djangodash2013"><i class="icon-github"></i> Go to Github Project</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+

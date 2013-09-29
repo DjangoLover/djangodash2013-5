@@ -1,9 +1,9 @@
 {% extends "music/music_base.html" %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_tags static %}
 
 {% block extra_css %}
     <!-- django-chosen css media -->
-    {{ form.media.css }}
+    <link rel="stylesheet" href="{% static 'css/chosen.css' %}">
 {% endblock extra_css %}
 
 {% block content %}
@@ -18,7 +18,8 @@
 
 {% block extra_javascript %}
 <!-- django-chosen js media -->
-    {{ form.media.js }}
+    <script type="text/javascript" src="{% static 'js/chosen.jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/chosen.jquery_ready.js' %}"></script>
     <script type="text/javascript">
     $(".chosen-select").chosen();
     </script>
