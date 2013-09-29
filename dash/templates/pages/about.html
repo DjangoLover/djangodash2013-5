@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block page_header %}
 <div class="page-header">
@@ -16,7 +17,7 @@
 
         <div class="row">
             <div class="well text-center">
-                <img src="{{ STATIC_URL }}img/screencap.png" />
+                <img src="{% static 'img/screencap.png' %}" />
             </div>
             <div class="well">
                 <h3 class="text-center">Project Details</h3>
